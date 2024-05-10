@@ -1,0 +1,54 @@
+.home {
+  width: 60vw;
+  margin: auto;
+  &-fields {
+    padding: 40px 0;
+    margin: 50px auto;
+    background-color: rgb(222, 227, 222);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-around;
+    &-inputs {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      h2 {
+        width: 150px;
+        text-align: left;
+        font-size: 23px;
+        color:darkblue;
+      }
+      input {
+        width: 50%;
+        height: 2.895rem;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        padding: 5px 5px 5px 15px;
+        color: blue;
+        font-size: 20px;
+      }
+      input::placeholder {
+        font-size: 23px;
+        color: grey;
+      }
+    }
+    &-button {
+      margin-top: 20px;
+      button {
+        width: 200px;
+
+        font-size: 1.3896rem;
+        padding: 10px;
+        background-color: rgba(5, 5, 97, 0.751);
+        color: white;
+        border-radius: 20px;
+        margin-right: 20px;
+      }
+    }
+  }
+}
