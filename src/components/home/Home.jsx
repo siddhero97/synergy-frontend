@@ -1,22 +1,35 @@
 import React, { useState } from "react";
+// import { module as Apiservice } from "../apiservice";
 import "./Home.scss";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    password: "",
     phone: "",
     designation: "",
     company: "",
-    location: "",
+    linkedinurl: "",
   });
-  const handlesubmit = () => {};
+  const [action, setAction] = useState("Sign-up");
+  const handlesubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+    navigate("/login");
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
   return (
     <div className="home">
+      <h1 className="home-heading">Sign-Up</h1>
+
       <form onSubmit={handlesubmit}>
         <section className="home-fields">
           <div className="home-fields-inputs">
@@ -30,6 +43,7 @@ const Home = () => {
               onChange={handleChange}
             ></input>
           </div>
+
           <div className="home-fields-inputs">
             <h2>Email :</h2>
             <input
@@ -42,6 +56,18 @@ const Home = () => {
             />
           </div>
           <div className="home-fields-inputs">
+            <h2>Password :</h2>
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter Password"
+              required
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="home-fields-inputs">
             <h2>Phone Number :</h2>
             <input
               type="number"
@@ -51,6 +77,7 @@ const Home = () => {
               onChange={handleChange}
             />
           </div>
+
           <div className="home-fields-inputs">
             <h2>Designation :</h2>
             <input
@@ -62,6 +89,7 @@ const Home = () => {
               onChange={handleChange}
             />
           </div>
+
           <div className="home-fields-inputs">
             <h2> Company :</h2>
             <input
@@ -73,20 +101,35 @@ const Home = () => {
               onChange={handleChange}
             />
           </div>
+
           <div className="home-fields-inputs">
-            <h2>Location :</h2>
+            <h2>Linkedin-URL :</h2>
 
             <input
               type="text"
-              name="location"
-              placeholder="Enter location"
-              value={formData.location}
+              name="linkedinurl"
+              placeholder="Enter LinkedIn"
+              value={formData.linkedinurl}
+              requird
               onChange={handleChange}
             />
           </div>
+
           <div className="home-fields-button">
-            <button className="">Sign up</button>
-            <button>Log in</button>{" "}
+            <button
+              className={action === "Sign-up" ? "" : "greyout"}
+              onClick={() => setAction("Sign-up")}
+            >
+              Sign up
+            </button>
+            <button
+              className="greyout"
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Log in
+            </button>{" "}
           </div>
         </section>
       </form>
