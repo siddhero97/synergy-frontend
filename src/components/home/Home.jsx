@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./Home.scss"
 import { useNavigate } from "react-router-dom";
 import {postUser, fetchUser } from  "../../services/services"
+import Logo from "../../assets/Logo.png";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -30,16 +31,19 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1 className="home-heading">Sign-Up</h1>
+     
+        <img className= "home-image" src={Logo} alt="Logo" />
+    
+      <h1 className="home-heading">Sign Up</h1>
 
       <form onSubmit={handlesubmit}>
         <section className="home-fields">
           <div className="home-fields-inputs">
-            <h2> Name :</h2>
+           
             <input
               type="text"
               name="name"
-              placeholder="Enter full name"
+              placeholder="Name:"
               required
               value={formData.name}
               onChange={handleChange}
@@ -47,22 +51,22 @@ const Home = () => {
           </div>
 
           <div className="home-fields-inputs">
-            <h2>Email :</h2>
+            
             <input
               type="email"
               name="email"
-              placeholder="Enter email id"
+              placeholder="Email:"
               required
               value={formData.email}
               onChange={handleChange}
             />
           </div>
           <div className="home-fields-inputs">
-            <h2>Password :</h2>
+            
             <input
               type="password"
               name="password"
-              placeholder="Enter Password"
+              placeholder="Password:"
               required
               value={formData.password}
               onChange={handleChange}
@@ -70,34 +74,21 @@ const Home = () => {
           </div>
 
           <div className="home-fields-inputs">
-            <h2>Phone Number :</h2>
+            
             <input
               type="number"
               name="phone"
-              placeholder="Enter phone number"
+              placeholder="Phone Number:"
               value={formData.phone}
               onChange={handleChange}
             />
           </div>
-
           <div className="home-fields-inputs">
-            <h2>Designation :</h2>
-            <input
-              type="text"
-              name="designation"
-              placeholder="Enter designation"
-              required
-              value={formData.designation}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="home-fields-inputs">
-            <h2> Company :</h2>
+           
             <input
               type="text"
               name="company"
-              placeholder="Enter company name"
+              placeholder="Company:"
               required
               value={formData.company}
               onChange={handleChange}
@@ -105,12 +96,26 @@ const Home = () => {
           </div>
 
           <div className="home-fields-inputs">
-            <h2>Linkedin-URL :</h2>
+            
+            <input
+              type="text"
+              name="designation"
+              placeholder="Position:"
+              required
+              value={formData.designation}
+              onChange={handleChange}
+            />
+          </div>
+
+          
+
+          <div className="home-fields-inputs">
+            
 
             <input
               type="text"
               name="linkedinurl"
-              placeholder="Enter LinkedIn"
+              placeholder="Linkedin Id:"
               value={formData.linkedinurl}
               required
               onChange={handleChange}
@@ -124,14 +129,14 @@ const Home = () => {
             >
               Sign up
             </button>
-            <button
+            <p
               className="greyout"
               onClick={() => {
                 navigate("/login");
               }}
             >
-              Log in
-            </button>{" "}
+              Already have an account?  Login
+            </p>{" "}
           </div>
         </section>
       </form>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../assets/Logo.png";
+
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -17,27 +19,28 @@ const Login = () => {
   };
   return (
     <div className="home">
+        <img className= "home-image" src={Logo} alt="Logo" />
       <h1 className="home-heading">Login</h1>
 
       <form onSubmit={handlesubmit}>
         <section className="home-fields">
           <div className="home-fields-inputs">
-            <h2>Email :</h2>
+            
             <input
               type="email"
               name="email"
-              placeholder="Enter email id"
+              placeholder="Email/Username:"
               required
               value={formData.email}
               onChange={handleChange}
             />
           </div>
           <div className="home-fields-inputs">
-            <h2>Password :</h2>
+            
             <input
               type="password"
               name="password"
-              placeholder="Enter Password"
+              placeholder="Password:"
               required
               value={formData.password}
               onChange={handleChange}
@@ -45,12 +48,7 @@ const Login = () => {
           </div>
 
           <div className="home-fields-button">
-            <button
-              className="greyout"
-              onClick={() => navigate("/")}
-            >
-              Sign up
-            </button>
+            
             <button
               className={action === "Login" ? "" : "greyout"}
               onClick={() => {
@@ -59,6 +57,12 @@ const Login = () => {
             >
               Log in
             </button>{" "}
+            <p
+              className="greyout"
+              onClick={() => navigate("/")}
+            >
+              New User? Register Here
+            </p>
           </div>
         </section>
       </form>
