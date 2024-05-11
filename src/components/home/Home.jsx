@@ -19,6 +19,7 @@ const Home = () => {
     e.preventDefault();
     console.log(formData);
     navigate("/login");
+    
   };
 
   const handleChange = (e) => {
