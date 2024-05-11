@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 
+import { loginData } from "../../services/services";
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -49,6 +50,9 @@ const Login = () => {
 
           <div className="home-fields-button">
             
+            <button className="greyout" onClick={() => navigate("/")}>
+              Sign up
+            </button>
             <button
               className={action === "Login" ? "" : "greyout"}
               onClick={() => {
