@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { module as Apiservice } from "../apiservice";
 import "./Home.scss"
 import { useNavigate } from "react-router-dom";
-import {postData,fetchData} from "../../services/services"
+import {postUser,fetchUser} from "../../services/services"
 import Logo from "../../assets/Logo.png";
 
 const Home = () => {
@@ -22,7 +22,7 @@ const Home = () => {
     console.log(formData);
 
     try {
-      const response = await postData(formData)
+      const response = await postUser(formData)
       console.log(response);
       if (response == 200) {
         console.log("You are signed in")

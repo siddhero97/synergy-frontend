@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import axios from 'axios';
-const API_BASE_URL = process.env.REACT_APP_BE_URL; // Base URL of your API
-=======
 import axios from "axios";
 const API_BASE_URL = process.env.REACT_APP_BE_URL; // Base URL of your API
 
->>>>>>> 3a73b80 (feat: Resolve merge conflicts.)
 const client = axios.create({
   baseURL: API_BASE_URL,
   headers: {
