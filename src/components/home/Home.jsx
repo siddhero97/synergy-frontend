@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 // import { module as Apiservice } from "../apiservice";
-import "./Home.scss";
+import "./Home.scss"
 import { useNavigate } from "react-router-dom";
+import {postUser, fetchUser } from  "../../services/services"
 
 const Home = () => {
   const navigate = useNavigate();
@@ -18,8 +19,8 @@ const Home = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    navigate("/login");
-    
+    postUser(formData);
+    navigate("/login"); 
   };
 
   const handleChange = (e) => {
@@ -111,7 +112,7 @@ const Home = () => {
               name="linkedinurl"
               placeholder="Enter LinkedIn"
               value={formData.linkedinurl}
-              requird
+              required
               onChange={handleChange}
             />
           </div>

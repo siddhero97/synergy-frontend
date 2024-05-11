@@ -1,6 +1,5 @@
 import axios from 'axios';
-const API_BASE_URL = process.env.BACKEND_URL; // Base URL of your API
-
+const API_BASE_URL = process.env.REACT_APP_BE_URL; // Base URL of your API
 const client = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -8,9 +7,9 @@ const client = axios.create({
   }
 });
 
- const fetchData = async () => {
+ export const fetchUser = async () => {
   try {
-    const response = await client.get(`API_BASE_URL/users`);
+    const response = await client.get(`/users`);
     return response.data;
   } catch (error) {
     console.error('Failed to fetch data:', error);
@@ -18,16 +17,13 @@ const client = axios.create({
   }
 };
 
-const postData = async (data) => {
+export const postUser = async (data) => {
   try {
-    const response = await client.post(`API_BASE_URL/users/create`, data);
+    console.log("Pokeon" + client.baseURL);
+    const response = await client.post(`/users/create`, data);
     return response.data;
   } catch (error) {
     console.error('Failed to post data:', error);
     throw error;
   }
 };
-
-module.exports={
-    fetchData,postData
-}
