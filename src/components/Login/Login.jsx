@@ -49,10 +49,6 @@ const Login = () => {
           </div>
 
           <div className="home-fields-button">
-            
-            <button className="greyout" onClick={() => navigate("/")}>
-              Sign up
-            </button>
             <button
               className={action === "Login" ? "" : "greyout"}
               onClick={() => {
