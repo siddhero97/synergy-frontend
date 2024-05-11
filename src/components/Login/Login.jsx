@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
-import { loginData } from "../../services/services";
+import { loginUser } from "../../services/services";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     console.log("Coming from fields", formData);
     try {
-      const response = await loginData(formData);
+      const response = await loginUser(formData);
       console.log("response", response);
       sessionStorage.setItem("jwtToken", response.data.token);
     } catch (error) 
@@ -57,13 +57,6 @@ const Login = () => {
           </div>
 
           <div className="home-fields-button">
-<<<<<<< Updated upstream
-            
-=======
-            <button className="greyout" onClick={() => navigate("/")}>
-              Sign up
-            </button>
->>>>>>> Stashed changes
             <button
               className={action === "Login" ? "" : "greyout"}
               onClick={() => {
