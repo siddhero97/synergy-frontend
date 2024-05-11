@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-<<<<<<< Updated upstream
 import Logo from "../../assets/Logo.png";
 
-=======
-import { loginData } from "../../services/services";
->>>>>>> Stashed changes
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -17,17 +13,9 @@ const Login = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const handlesubmit = async (e) => {
+  const handlesubmit = (e) => {
     e.preventDefault();
-    console.log("Coming from fields", formData);
-    try {
-      const response = await loginData(formData);
-      console.log("response", response);
-      sessionStorage.setItem("jwtToken", response.data.token);
-    } catch (error) 
-    {
-      alert(error.response.data.message);
-    }
+    console.log(formData);
   };
   return (
     <div className="home">
@@ -60,13 +48,7 @@ const Login = () => {
           </div>
 
           <div className="home-fields-button">
-<<<<<<< Updated upstream
             
-=======
-            <button className="greyout" onClick={() => navigate("/")}>
-              Sign up
-            </button>
->>>>>>> Stashed changes
             <button
               className={action === "Login" ? "" : "greyout"}
               onClick={() => {
