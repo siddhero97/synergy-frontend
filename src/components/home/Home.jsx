@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { module as Apiservice } from "../apiservice";
+
 import "./Home.scss"
 import { useNavigate } from "react-router-dom";
 import {postUser,fetchUser} from "../../services/services"
