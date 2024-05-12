@@ -3,8 +3,8 @@ import "./App.css";
 import Home from "./components/home/Home";
 import Login from "./components/Login/Login";
 import ListContact from "./components/ListContact/ListContact";
+import AddContact from "./components/AddContact/AddContact"
 import Qr from "./components/QR/Qr";
-import AddContact from "./components/AddContact/AddContact";
 import QrScanner from "./components/qrScanner/qrScanner"
 
 function App() {
@@ -17,7 +17,8 @@ function App() {
           <Route path="/listcontact" element={<ListContact />}></Route>
           <Route path="/qr" element={<Qr />}></Route>
           <Route path="/addcontact" element={<AddContact />} />
-          <Route path="/scan" element={<QrScanner />} />
+          <Route path="/qr" element={<Qr/>}></Route>
+          <Route path="/scan" element={<QrScanner/>} />
         </Routes>
       </BrowserRouter>
     </div>

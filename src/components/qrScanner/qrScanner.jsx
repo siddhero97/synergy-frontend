@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { QrReader } from 'react-qr-reader';
+import {QrReader} from 'react-qr-reader';
 
 const QRScanner = () => {
   const [data, setData] = useState('No result');
@@ -14,7 +14,6 @@ const QRScanner = () => {
     console.error(err);
   }
 
-  
   return (
     <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}>
       <div style={{ width: '50%', maxWidth: '500px', position: 'relative' }}>
