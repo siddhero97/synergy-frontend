@@ -9,7 +9,6 @@ import { fetchUserById } from "../../services/services";
 const ListContact = () => {
   //const contacts = ["ABC", "Jane", "Jacob", "Jasmin", "Piter", "Lamno", "Bob", "Jasmin", "Piter", "Lamno", "Bob"];
 
-  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
   const [contacts, setContacts] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
