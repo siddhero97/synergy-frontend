@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
+import { loginUser } from "../../services/services";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,10 +14,24 @@ const Login = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const handlesubmit = (e) => {
+  const handlesubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log("Coming from fields", formData);
+    try {
+      const response = await loginUser(formData);
+      console.log("response", response);
+      
+      if (response.data.token) {
+        sessionStorage.setItem("jwtToken", response.data.token);
+        sessionStorage.setItem("currentUserId",response.data.userId);
+      }
+      navigate("/listcontact");
+    } catch (error) 
+    {
+      alert(error.response.data.message);
+    }
   };
+  
   return (
     <div className="home">
       <img className="home-image" src={Logo} alt="Logo" />
