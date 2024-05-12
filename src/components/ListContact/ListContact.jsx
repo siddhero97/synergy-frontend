@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
-=======
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
->>>>>>> e9aa92e (list contact updated)
 import "./ListContact.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
