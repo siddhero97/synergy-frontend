@@ -14,14 +14,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-<<<<<<< HEAD
           <Route path="/listcontact" element={<ListContact />}></Route>
           <Route path="/addcontact" element={<AddContact />} />
           <Route path="/qr" element={<Qr/>}></Route>
           <Route path="/scan" element={<QrScanner/>} />
-=======
-          <Route path="/addcontact" element={<AddContact />} />
->>>>>>> 8af6a8c (Contact Detail Page)
         </Routes>
       </BrowserRouter>
     </div>
