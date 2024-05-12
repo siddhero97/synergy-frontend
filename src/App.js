@@ -17,7 +17,7 @@ function App() {
           <Route path="/listcontact" element={<ListContact />}></Route>
           <Route path="/qr" element={<Qr />}></Route>
           <Route path="/addcontact" element={<AddContact />} />
-          <Route path="/qr" element={<Qr/>}></Route>
+          {/* <Route path="/qr" element={<Qr/>}></Route> */}
           <Route path="/scan" element={<QrScanner/>} />
         </Routes>
       </BrowserRouter>

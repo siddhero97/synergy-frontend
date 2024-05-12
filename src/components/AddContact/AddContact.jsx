@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { postUser, fetchUser } from "../../services/services";
 import "./AddContact.scss";
-import ContactIcon from "../../assets/ContactIcon.png";
-import ScanNow from "../../assets/ScanNow.png";
+import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
+import DocumentScannerOutlinedIcon from "@mui/icons-material/DocumentScannerOutlined";
 
 const AddContact = () => {
   const navigate = useNavigate();
@@ -76,14 +76,21 @@ const AddContact = () => {
             </button>
           </section>
         </form>
-        {/* <footer className="nav">
-          <button className="nav__button">
-            <img className="icon" src={ContactIcon} alt="ContactIcon" />
-         Contact </button>
-         <button className="nav__button">
-            <img className="icon" src={ScanNow} alt="ScanNow" />
-         Scan Now </button>
-        </footer> */}
+        </div>
+        <div className="listcontact-below">
+        <button className="listcontact-below-contact" onClick={() => {
+                navigate("/listcontact");
+              }}>
+          <PermContactCalendarOutlinedIcon className="icon" />
+          <h4>Contact</h4>
+        </button>
+        <buttton className="listcontact-below-qr" onClick={() => {
+                navigate("/qr");
+              }}>
+          <DocumentScannerOutlinedIcon className="icon" />
+          <h4>Scan </h4>
+        </buttton>
+      
       </div>
     </div>
   );

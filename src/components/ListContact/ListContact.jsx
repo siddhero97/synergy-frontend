@@ -33,8 +33,10 @@ const ListContact = () => {
 
   return <div>
     {
+     
       contacts ? ( 
     <div className="listcontact">
+      console.log(contacts);
       <div className="listcontact-heading">
         <h2>Contact Info</h2>
       </div>
@@ -77,9 +79,11 @@ const ListContact = () => {
           <PermContactCalendarOutlinedIcon className="icon" />
           <h4>Contact</h4>
         </button>
-        <buttton className="listcontact-below-qr">
+        <buttton className="listcontact-below-qr" onClick={() => {
+                navigate("/qr");
+              }}>
           <DocumentScannerOutlinedIcon className="icon" />
-          <h4>Scan Now</h4>
+          <h4>Scan </h4>
         </buttton>
       </div>
     </div>
