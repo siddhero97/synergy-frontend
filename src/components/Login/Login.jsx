@@ -19,13 +19,12 @@ const Login = () => {
   };
   return (
     <div className="home">
-        <img className= "home-image" src={Logo} alt="Logo" />
+      <img className="home-image" src={Logo} alt="Logo" />
       <h1 className="home-heading">Login</h1>
 
       <form onSubmit={handlesubmit}>
         <section className="home-fields">
           <div className="home-fields-inputs">
-            
             <input
               type="email"
               name="email"
@@ -36,7 +35,6 @@ const Login = () => {
             />
           </div>
           <div className="home-fields-inputs">
-            
             <input
               type="password"
               name="password"
@@ -48,7 +46,6 @@ const Login = () => {
           </div>
 
           <div className="home-fields-button">
-            
             <button
               className={action === "Login" ? "" : "greyout"}
               onClick={() => {
@@ -57,10 +54,7 @@ const Login = () => {
             >
               Log in
             </button>{" "}
-            <p
-              className="greyout"
-              onClick={() => navigate("/")}
-            >
+            <p className="greyout" onClick={() => navigate("/")}>
               New User? Register Here
             </p>
           </div>
