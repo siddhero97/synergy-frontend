@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-=======
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
->>>>>>> e9aa92e (list contact updated)
 import "./ListContact.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
 import DocumentScannerOutlinedIcon from "@mui/icons-material/DocumentScannerOutlined";
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchUserById } from "../../services/services";
 
 const ListContact = () => {
@@ -37,11 +31,9 @@ const ListContact = () => {
     return
   }, []);
 
-  return   <div>
-
-  
-
-  return (
+  return <div>
+    {
+      contacts ? ( 
     <div className="listcontact">
       <div className="listcontact-heading">
         <h2>Contact Info</h2>
@@ -62,7 +54,7 @@ const ListContact = () => {
         <ul className="listcontact-contactdetails-lists">
           
           {contacts
-            .sort(sort((a, b) => a.firstName.localeCompare(b.firstName)))
+            .sort((a, b) => a.firstName.localeCompare(b.firstName))
             .filter((item) => {
               if (searchQuery == "") {
                 return item;
@@ -94,7 +86,7 @@ const ListContact = () => {
   ): (
         <p>Loading your contacts...</p>
       )}
-    </div> 
+  </div> 
 };
 
 export default ListContact;
