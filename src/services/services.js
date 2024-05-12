@@ -8,15 +8,16 @@ const client = axios.create({
   }
 });
 
-export const fetchUser = async () => {
+export const fetchUserById = async (userId) => {
   try {
-    const response = await client.get(`${API_BASE_URL}/users`);
+    const response = await client.get(`${API_BASE_URL}/users/${userId}`);
     return response.data;
   } catch (error) {
     console.error('Failed to fetch data:', error);
     throw error;
   }
 };
+
 
 export const postUser = async (data) => {
   try {

@@ -20,13 +20,18 @@ const Login = () => {
     try {
       const response = await loginUser(formData);
       console.log("response", response);
-      sessionStorage.setItem("jwtToken", response.data.token);
+      
+      if (response.data.token) {
+        sessionStorage.setItem("jwtToken", response.data.token);
+        sessionStorage.setItem("currentUserId",response.data.userId);
+      }
       navigate("/listcontact");
     } catch (error) 
     {
       alert(error.response.data.message);
     }
   };
+  
   return (
     <div className="home">
         <img className= "home-image" src={Logo} alt="Logo" />
