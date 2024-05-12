@@ -5,8 +5,8 @@ import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCale
 import DocumentScannerOutlinedIcon from "@mui/icons-material/DocumentScannerOutlined";
 import { postUser, fetchUser, postContact } from "../../services/services";
 import "./AddContact.scss";
-import ContactIcon from "../../assets/ContactIcon.png";
-import ScanNow from "../../assets/ScanNow.png";
+import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
+import DocumentScannerOutlinedIcon from "@mui/icons-material/DocumentScannerOutlined";
 
 const AddContact = () => {
   const navigate = useNavigate();
@@ -79,20 +79,21 @@ const AddContact = () => {
             </button>
           </section>
         </form>
-        <footer>
+        </div>
         <div className="listcontact-below">
-        <button className="listcontact-below-contact"
-                onClick={()=>{navigate('/listcontact')}}>
+        <button className="listcontact-below-contact" onClick={() => {
+                navigate("/listcontact");
+              }}>
           <PermContactCalendarOutlinedIcon className="icon" />
           <h4>Contact</h4>
         </button>
-        <buttton className="listcontact-below-qr"
-          onClick={()=>{navigate("/addcontact")}}>
+        <buttton className="listcontact-below-qr" onClick={() => {
+                navigate("/qr");
+              }}>
           <DocumentScannerOutlinedIcon className="icon" />
-          <h4>Scan Now</h4>
+          <h4>Scan </h4>
         </buttton>
-      </div>
-        </footer>
+      
       </div>
     </div>
   );
