@@ -1,0 +1,19 @@
+.listcontact {
+  background-color: aqua;
+  &-heading {
+    height: 6rem;
+    background-color: #1848a0;
+    display: grid;
+    align-items: center;
+    margin-bottom: 1rem;
+    h2 {
+      margin: auto;
+      color: white;
+    }
+  }
+  &-search {
+    border-top: 5px  solid #e5e5e5;
+    border-bottom: 5px  solid #e5e5e5;
+    padding:1rem;
+  }
+}
