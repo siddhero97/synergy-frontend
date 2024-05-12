@@ -20,22 +20,30 @@ const Login = () => {
     try {
       const response = await loginUser(formData);
       console.log("response", response);
+<<<<<<< HEAD
       sessionStorage.setItem("jwtToken", response.data.token);
+=======
+      
+      if (response.data.token) {
+        sessionStorage.setItem("jwtToken", response.data.token);
+        sessionStorage.setItem("currentUserId",response.data.userId);
+      }
+>>>>>>> 83235de47d155a94867156770e1194bb64dd5706
       navigate("/listcontact");
     } catch (error) 
     {
       alert(error.response.data.message);
     }
   };
+  
   return (
     <div className="home">
-        <img className= "home-image" src={Logo} alt="Logo" />
+      <img className="home-image" src={Logo} alt="Logo" />
       <h1 className="home-heading">Login</h1>
 
       <form onSubmit={handlesubmit}>
         <section className="home-fields">
           <div className="home-fields-inputs">
-            
             <input
               type="email"
               name="email"
@@ -46,7 +54,6 @@ const Login = () => {
             />
           </div>
           <div className="home-fields-inputs">
-            
             <input
               type="password"
               name="password"
@@ -66,10 +73,7 @@ const Login = () => {
             >
               Log in
             </button>{" "}
-            <p
-              className="greyout"
-              onClick={() => navigate("/")}
-            >
+            <p className="greyout" onClick={() => navigate("/")}>
               New User? Register Here
             </p>
           </div>
