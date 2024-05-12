@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+=======
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+>>>>>>> e9aa92e (list contact updated)
 import "./ListContact.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
@@ -10,6 +15,8 @@ import { fetchUserById } from "../../services/services";
 const ListContact = () => {
   const navigate = useNavigate();
   const [contacts, setContacts] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  
   useEffect(() => {
     // Fetch user data here (replace with your actual data fetching logic)
     const fetchUserData = async () => {
@@ -31,7 +38,10 @@ const ListContact = () => {
   }, []);
 
   return   <div>
-      {contacts ? (
+
+  
+
+  return (
     <div className="listcontact">
       <div className="listcontact-heading">
         <h2>Contact Info</h2>
@@ -39,21 +49,34 @@ const ListContact = () => {
       <div className="listcontact-search">
         <div className="listcontact-search-searchbox">
           <SearchIcon />
-          <input type="text" placeholder="Search" />
+          <input
+            type="text"
+            placeholder="Search"
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
       </div>
       <div className="listcontact-contactdetails">
         <h2>Contact Details</h2>
 
         <ul className="listcontact-contactdetails-lists">
-          {contacts.sort((a, b) => a.firstName.localeCompare(b.firstName)).map(contact => (
-            <li key={contact.id}>
-              <Link className="linktype">
-                <p className="name"> {`${contact.firstName} ${contact.lastName}`}</p>
-                <p className="readmore">read more</p>
-              </Link>
-            </li>
-          ))}
+          
+          {contacts
+            .sort(sort((a, b) => a.firstName.localeCompare(b.firstName)))
+            .filter((item) => {
+              if (searchQuery == "") {
+                return item;
+              } else
+                return item.toLowerCase().includes(searchQuery.toLowerCase());
+            })
+            .map((user, id) => (
+              <li key={id}>
+                <Link className="linktype">
+                  <p className="name"> {user}</p>
+                  <p className="readmore">read more</p>
+                </Link>
+              </li>
+            ))}
         </ul>
       </div>
       <div className="listcontact-below">
