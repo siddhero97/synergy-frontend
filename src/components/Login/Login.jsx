@@ -20,15 +20,11 @@ const Login = () => {
     try {
       const response = await loginUser(formData);
       console.log("response", response);
-<<<<<<< HEAD
-      sessionStorage.setItem("jwtToken", response.data.token);
-=======
       
       if (response.data.token) {
         sessionStorage.setItem("jwtToken", response.data.token);
         sessionStorage.setItem("currentUserId",response.data.userId);
       }
->>>>>>> 83235de47d155a94867156770e1194bb64dd5706
       navigate("/listcontact");
     } catch (error) 
     {
