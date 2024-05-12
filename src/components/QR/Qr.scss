@@ -1,15 +1,14 @@
 .qr {
   display: grid;
-  grid-template-rows: .1fr 2fr auto;
+  grid-template-rows: .1fr 3fr .1fr;
 
   &-logo {
     display: flex;
     justify-content: center;
   }
   &-middle {
-    //height:80%;
     display: grid;
-    grid-template-rows: 0.1fr 3fr;
+    grid-template-rows: 0.1fr 5fr;
 
     &-heading {
       p {
@@ -18,16 +17,21 @@
         font-weight: 500;
         font-size: 20px;
         text-align: center;
+        font-size: 23px;
       }
     }
     &-card {
-      background-color: azure;
-      height: 90%;
+      background-color: rgb(220, 243, 243);
+      height: 70%;
       width: 80%;
       margin: auto;
       display: flex;
       align-items: center;
       justify-content: center;
+      img{
+        height:70%;
+        width:80%;
+      }
     }
   }
 }
