@@ -21,6 +21,7 @@ const Login = () => {
       const response = await loginUser(formData);
       console.log("response", response);
       sessionStorage.setItem("jwtToken", response.data.token);
+      navigate("/listcontact");
     } catch (error) 
     {
       alert(error.response.data.message);
