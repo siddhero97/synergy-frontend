@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
+import { loginUser } from "../../services/services";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,9 +14,17 @@ const Login = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const handlesubmit = (e) => {
+  const handlesubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log("Coming from fields", formData);
+    try {
+      const response = await loginUser(formData);
+      console.log("response", response);
+      sessionStorage.setItem("jwtToken", response.data.token);
+    } catch (error) 
+    {
+      alert(error.response.data.message);
+    }
   };
   return (
     <div className="home">
@@ -48,7 +57,6 @@ const Login = () => {
           </div>
 
           <div className="home-fields-button">
-            
             <button
               className={action === "Login" ? "" : "greyout"}
               onClick={() => {

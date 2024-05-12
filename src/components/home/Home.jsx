@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import { module as Apiservice } from "../apiservice";
 import "./Home.scss"
 import { useNavigate } from "react-router-dom";
-import {postUser, fetchUser } from  "../../services/services"
+import {postUser,fetchUser} from "../../services/services"
 import Logo from "../../assets/Logo.png";
 
 const Home = () => {
@@ -20,8 +20,17 @@ const Home = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    postUser(formData);
-    navigate("/login"); 
+
+    try {
+      const response = await postUser(formData)
+      console.log(response);
+      if (response == 200) {
+        console.log("You are signed in")
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleChange = (e) => {
