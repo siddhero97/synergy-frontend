@@ -1,19 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./ListContact.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
 import DocumentScannerOutlinedIcon from "@mui/icons-material/DocumentScannerOutlined";
 const ListContact = () => {
-  const contacts = [
-    "ABC",
-    "Jane",
-    "Jacob",
-    "Jasmin",
-    "Piter",
-    "Lamno",
-    "Bob",
-  ];
+  const contacts = ["ABC", "Jane", "Jacob", "Jasmin", "Piter", "Lamno", "Bob", "Jasmin", "Piter", "Lamno", "Bob"];
+
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <div className="listcontact">
       <div className="listcontact-heading">
@@ -22,21 +17,33 @@ const ListContact = () => {
       <div className="listcontact-search">
         <div className="listcontact-search-searchbox">
           <SearchIcon />
-          <input type="text" placeholder="Search" />
+          <input
+            type="text"
+            placeholder="Search"
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
       </div>
       <div className="listcontact-contactdetails">
         <h2>Contact Details</h2>
 
         <ul className="listcontact-contactdetails-lists">
-          {contacts.sort().map((user, id) => (
-            <li key={id}>
-              <Link className="linktype">
-                <p className="name"> {user}</p>
-                <p className="readmore">read more</p>
-              </Link>
-            </li>
-          ))}
+          {contacts
+            .sort()
+            .filter((item) => {
+              if (searchQuery == "") {
+                return item;
+              } else
+                return item.toLowerCase().includes(searchQuery.toLowerCase());
+            })
+            .map((user, id) => (
+              <li key={id}>
+                <Link className="linktype">
+                  <p className="name"> {user}</p>
+                  <p className="readmore">read more</p>
+                </Link>
+              </li>
+            ))}
         </ul>
         <div className="listcontact-contactdetails-button">
           <button>Create Contact</button>
