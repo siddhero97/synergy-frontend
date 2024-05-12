@@ -1,23 +1,26 @@
 .qr {
   display: grid;
-  grid-template-rows: .1fr 3fr .1fr;
+  grid-template-rows: .1fr 2fr .1fr;
 
   &-logo {
     display: flex;
     justify-content: center;
+    img{
+      width:100%;
+    }
   }
   &-middle {
     display: grid;
-    grid-template-rows: 0.1fr 5fr;
+    grid-template-rows: 0.1fr 2fr;
 
     &-heading {
       p {
-        width: 55%;
+        width: 65%;
         margin: auto;
         font-weight: 500;
         font-size: 20px;
         text-align: center;
-        font-size: 23px;
+        font-size: 18px;
       }
     }
     &-card {
