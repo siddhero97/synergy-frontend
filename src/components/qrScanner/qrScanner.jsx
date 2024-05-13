@@ -10,9 +10,10 @@ const QRScanner = () => {
   const navigate = useNavigate();
   const [data, setData] = useState("No result");
 
-  const handleScan = (data) => {
+  const handleScan = async (data) => {
     if (data) {
-      setData(data);
+      await setData(data);
+      navigate('/addcontact');
     }
   };
 

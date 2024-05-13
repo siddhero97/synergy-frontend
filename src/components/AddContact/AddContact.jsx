@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
-import DocumentScannerOutlinedIcon from "@mui/icons-material/DocumentScannerOutlined";
 import { postUser, fetchUser, postContact } from "../../services/services";
 import "./AddContact.scss";
 import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";

@@ -37,7 +37,6 @@ const ListContact = () => {
      
       contacts ? ( 
     <div className="listcontact">
-      console.log(contacts);
       <div className="listcontact-heading">
         <h2>Contact Info</h2>
       </div>
@@ -80,9 +79,10 @@ const ListContact = () => {
           <h4>Contact</h4>
         </button>
         <buttton className="listcontact-below-qr" onClick={() => {
-                navigate("/qr");
+                navigate("/scan");
               }}>
-          <DocumentScannerOutlinedIcon className="icon" />
+          <DocumentScannerOutlinedIcon className="icon" 
+          />
           <h4>Scan </h4>
         </buttton>
       </div>
