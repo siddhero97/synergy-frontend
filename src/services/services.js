@@ -37,3 +37,13 @@ export const loginUser = async (data) => {
     throw error;
   }
 };
+
+export const postContact = async (userId,data) => {
+  try {
+    const response = await client.post(`${API_BASE_URL}/contacts/create/${userId}`, data);
+    return response;
+  } catch (error) {
+    console.error('Failed to post data:', error);
+    throw error;
+  }
+};

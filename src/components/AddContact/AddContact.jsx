@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { postUser, fetchUser } from "../../services/services";
+import PermContactCalendarOutlinedIcon from "@mui/icons-material/PermContactCalendarOutlined";
+import DocumentScannerOutlinedIcon from "@mui/icons-material/DocumentScannerOutlined";
+import { postUser, fetchUser, postContact } from "../../services/services";
 import "./AddContact.scss";
 import ContactIcon from "../../assets/ContactIcon.png";
 import ScanNow from "../../assets/ScanNow.png";
@@ -18,8 +20,9 @@ const AddContact = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    postUser(formData);
-    navigate("/login");
+    postContact(sessionStorage.currentUserId,formData);
+    console.log(sessionStorage.userId)
+    navigate("/listcontact");
   };
 
   const handleChange = (e) => {
@@ -39,7 +42,7 @@ const AddContact = () => {
               name="firstName"
               placeholder="First Name :"
               required
-              value={formData.firstname}
+              value={formData.firstName}
               onChange={handleChange}
             ></input>
 
@@ -49,7 +52,7 @@ const AddContact = () => {
               name="lastName"
               placeholder="Last Name :"
               required
-              value={formData.lastname}
+              value={formData.lastName}
               onChange={handleChange}
             ></input>
 
@@ -76,14 +79,20 @@ const AddContact = () => {
             </button>
           </section>
         </form>
-        {/* <footer className="nav">
-          <button className="nav__button">
-            <img className="icon" src={ContactIcon} alt="ContactIcon" />
-         Contact </button>
-         <button className="nav__button">
-            <img className="icon" src={ScanNow} alt="ScanNow" />
-         Scan Now </button>
-        </footer> */}
+        <footer>
+        <div className="listcontact-below">
+        <button className="listcontact-below-contact"
+                onClick={()=>{navigate('/listcontact')}}>
+          <PermContactCalendarOutlinedIcon className="icon" />
+          <h4>Contact</h4>
+        </button>
+        <buttton className="listcontact-below-qr"
+          onClick={()=>{navigate("/addcontact")}}>
+          <DocumentScannerOutlinedIcon className="icon" />
+          <h4>Scan Now</h4>
+        </buttton>
+      </div>
+        </footer>
       </div>
     </div>
   );

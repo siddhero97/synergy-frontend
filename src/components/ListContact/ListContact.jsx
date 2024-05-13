@@ -8,7 +8,7 @@ import { fetchUserById } from "../../services/services";
 
 const ListContact = () => {
   const navigate = useNavigate();
-  const [contacts, setContacts] = useState(null);
+  const [contacts, setContacts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   
   useEffect(() => {
@@ -19,6 +19,7 @@ const ListContact = () => {
         const response = await fetchUserById(currentUserId); // Assuming your API endpoint
         const data = response;
         setContacts(data.contacts);
+        console.log(data.contacts)
       } catch (error) {
         console.error('Error fetching user data:', error);
         // Handle error gracefully (e.g., display error message)
@@ -64,7 +65,7 @@ const ListContact = () => {
             .map((user, id) => (
               <li key={id}>
                 <Link className="linktype">
-                  <p className="name"> {user}</p>
+                  <p className="name"> {`${user.firstName} ${user.lastName}`}</p>
                   <p className="readmore">read more</p>
                 </Link>
               </li>
@@ -77,7 +78,8 @@ const ListContact = () => {
           <PermContactCalendarOutlinedIcon className="icon" />
           <h4>Contact</h4>
         </button>
-        <buttton className="listcontact-below-qr">
+        <buttton className="listcontact-below-qr"
+          onClick={()=>{navigate("/addcontact")}}>
           <DocumentScannerOutlinedIcon className="icon" />
           <h4>Scan Now</h4>
         </buttton>
