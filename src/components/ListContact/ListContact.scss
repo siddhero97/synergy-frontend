@@ -1,7 +1,6 @@
 .listcontact {
   display:grid;
-  grid-template-rows: .1fr .1fr 4fr .1fr ;
-
+  grid-template-rows: .1fr .1fr 2fr .1fr ;
   &-heading {
     height: 6rem;
     background-color: #1848a0;

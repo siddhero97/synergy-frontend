@@ -34,6 +34,7 @@ const ListContact = () => {
 
   return <div>
     {
+     
       contacts ? ( 
     <div className="listcontact">
       <div className="listcontact-heading">
@@ -53,7 +54,6 @@ const ListContact = () => {
         <h2>Contact Details</h2>
 
         <ul className="listcontact-contactdetails-lists">
-          
           {contacts
             .sort((a, b) => a.firstName.localeCompare(b.firstName))
             .filter((item) => {
@@ -78,10 +78,12 @@ const ListContact = () => {
           <PermContactCalendarOutlinedIcon className="icon" />
           <h4>Contact</h4>
         </button>
-        <buttton className="listcontact-below-qr"
-          onClick={()=>{navigate("/addcontact")}}>
-          <DocumentScannerOutlinedIcon className="icon" />
-          <h4>Scan Now</h4>
+        <buttton className="listcontact-below-qr" onClick={() => {
+                navigate("/scan");
+              }}>
+          <DocumentScannerOutlinedIcon className="icon" 
+          />
+          <h4>Scan </h4>
         </buttton>
       </div>
     </div>
